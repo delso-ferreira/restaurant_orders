@@ -1,6 +1,32 @@
-from src.models.ingredient import Ingredient  # noqa: F401, E261, E501
+from src.models.ingredient import Ingredient
+from src.models.ingredient import Restriction
 
 
-# Req 1
 def test_ingredient():
-    pass
+
+    ingredient1 = Ingredient('queijo mussarela')
+    ingredient2 = Ingredient('queijo provolone')
+    assert ingredient1 != ingredient2
+
+    ingredient1 = Ingredient('queijo mussarela')
+    ingredient2 = Ingredient('queijo mussarela')
+    assert hash(ingredient1) != hash(ingredient2)
+
+    ingredient1 = Ingredient("queijo mussarela")
+    assert ingredient1.name == "queijo mussarela"
+    assert ingredient1.restrictions == {
+        Restriction.LACTOSE, Restriction.ANIMAL_DERIVED
+    }
+
+    ingredient1 = Ingredient("queijo mussarela")
+    assert repr(ingredient1) == "Ingredient('queijo mussarela')"
+
+    ingredient1 = Ingredient("queijo mussarela")
+    ingredient2 = Ingredient("queijo provolone")
+    assert hash(ingredient1) == hash(ingredient2)
+
+    ingredient1 = Ingredient("queijo mussarela")
+    assert ingredient1.name == "queijo provolone"
+
+    ingredient1 = Ingredient("queijo mussarela")
+    assert ingredient1.restrictions == {Restriction.GLUTEN}
