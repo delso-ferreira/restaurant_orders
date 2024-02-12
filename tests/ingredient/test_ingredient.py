@@ -12,6 +12,14 @@ def test_ingredient():
     ingredient2 = Ingredient('queijo mussarela')
     assert hash(ingredient1) == hash(ingredient2)
 
+    ingredient1 = Ingredient('queijo mussarela')
+    ingredient2 = Ingredient('queijo mussarela')
+    assert ingredient1 == ingredient2
+
+    ingredient1 = Ingredient('queijo mussarela')
+    ingredient2 = Ingredient('queijo provolone')
+    assert not ingredient1 == ingredient2
+
     ingredient1 = Ingredient("queijo mussarela")
     assert ingredient1.name == "queijo mussarela"
     assert ingredient1.restrictions == {
@@ -23,10 +31,7 @@ def test_ingredient():
 
     ingredient1 = Ingredient("queijo mussarela")
     ingredient2 = Ingredient("queijo provolone")
-    assert hash(ingredient1) != hash(ingredient2)
-
-    ingredient1 = Ingredient("queijo mussarela")
-    assert ingredient1.name == "queijo provolone"
+    assert not hash(ingredient1) == hash(ingredient2)
 
     ingredient1 = Ingredient("queijo mussarela")
     assert ingredient1.restrictions != {Restriction.GLUTEN}
