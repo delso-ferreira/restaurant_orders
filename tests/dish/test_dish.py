@@ -19,7 +19,7 @@ def test_dish():
     Dish(dish1)
     assert dish1.name == 'pizza'
     assert dish1.price == 50.0
-    
+
     Dish(dish1)
     assert repr(dish1) == "Dish('pizza', R$50.00)"
 
@@ -29,9 +29,9 @@ def test_dish():
     with pytest.raises(ValueError):
         Dish('pizza', 300)
 
-    Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 2)
-    assert dish1.get_ingredients() == {Ingredient('queijo mussarela')}
+    Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 1)
+    Dish(dish1).add_ingredient_dependency(Ingredient('farinha'), 1)
 
-    assert dish1.get_restrictions() == {Restriction.LACTOSE, Restriction.ANIMAL_DERIVED}
-    
-    
+    assert dish1.get_restrictions() == {
+        Restriction.LACTOSE, Restriction.GLUTEN, Restriction.ANIMAL_DERIVED
+    }
