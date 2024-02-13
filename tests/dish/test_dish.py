@@ -6,29 +6,34 @@ import pytest
 # Req 2
 def test_dish():
     dish1 = Dish('pizza', 50.0)
+    assert dish1.name == 'pizza'
+    assert dish1.price == 50.0
+
+    dish1_comp = Dish('pizza', 50.0)
+    assert hash(dish1) == hash(dish1_comp)
+    assert dish1 == dish1_comp
+
     dish2 = Dish('Lasanha', 40.0)
-    assert dish1.name != dish2.name
+    assert hash(dish1) != hash(dish2)
     assert dish1 != dish2
+
+
+    Dish(dish1)
+    Dish(dish2)
+    assert dish1.name != dish2.name
+    
 
     Dish(dish1)
     assert hash(dish1) == hash(dish1)
 
     Dish(dish1)
-    Dish(dish2)
-    assert hash(dish1) != hash(dish2)
-
-    Dish(dish1)
-    assert dish1.name == 'pizza'
-    assert dish1.price == 50.0
-
-    Dish(dish1)
     assert repr(dish1) == "Dish('pizza', R$50.00)"
 
     with pytest.raises(TypeError):
-        Dish('pizza', '20')
+        Dish('pizza', '1111')
 
     with pytest.raises(ValueError):
-        Dish('pizza', 300)
+        Dish('pizza', 0)
 
     Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 1)
     Dish(dish1).add_ingredient_dependency(Ingredient('farinha'), 1)
