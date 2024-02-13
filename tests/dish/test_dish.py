@@ -29,10 +29,10 @@ def test_dish():
     Dish(dish1)
     assert repr(dish1) == "Dish('pizza', R$50.00)"
 
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError, match="Dish price must be float."):
         Dish('pizza', '1111')
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Dish price must be greater then zero."):
         Dish('pizza', 0)
 
     Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 1)
