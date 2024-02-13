@@ -7,6 +7,7 @@ import pytest
 def test_dish():
     dish1 = Dish('pizza', 50.0)
     dish2 = Dish('Lasanha', 40.0)
+    assert dish1.name != dish2.name
     assert dish1 != dish2
 
     Dish(dish1)
@@ -31,6 +32,8 @@ def test_dish():
 
     Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 1)
     Dish(dish1).add_ingredient_dependency(Ingredient('farinha'), 1)
+    assert dish1.recipe.get(Ingredient('queijo mussarela')) == 1
+    assert dish1.recipe.get(Ingredient('farinha')) == 1
 
     assert dish1.get_restrictions() == {
         Restriction.LACTOSE, Restriction.GLUTEN, Restriction.ANIMAL_DERIVED
