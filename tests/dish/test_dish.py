@@ -1,45 +1,42 @@
-from src.models.dish import Dish  # noqa: F401, E261, E501
-from src.models.ingredient import Ingredient, Restriction  # noqa: F401, E261, E501
+from src.models.dish import Dish
+from src.models.ingredient import Ingredient, Restriction
 import pytest
 
 
-# Req 2
 def test_dish():
-    dish1 = Dish('pizza', 50.0)
-    assert dish1.name == 'pizza'
-    assert dish1.price == 50.0
+    dish = Dish("Presunto", 10.0)
+    assert dish.name == "Presunto"
+    assert dish.price == 10.0
 
-    dish1_comp = Dish('pizza', 50.0)
-    assert hash(dish1) == hash(dish1_comp)
-    assert dish1 == dish1_comp
+    equal_dish = Dish("Presunto", 10.0)
+    assert hash(dish) == hash(equal_dish)
+    assert dish == equal_dish
 
-    dish2 = Dish('Lasanha', 40.0)
-    assert hash(dish1) != hash(dish2)
-    assert dish1 != dish2
+    nonequal_dish = Dish("Risoto", 50.0)
+    assert hash(dish) != hash(nonequal_dish)
+    assert dish != nonequal_dish
 
-
-    Dish(dish1)
-    Dish(dish2)
-    assert dish1.name != dish2.name
-    
-
-    Dish(dish1)
-    assert hash(dish1) == hash(dish1)
-
-    Dish(dish1)
-    assert repr(dish1) == "Dish('pizza', R$50.00)"
+    repr_dish = "Dish('Presunto', R$10.00)"
+    assert repr(dish) == repr_dish
 
     with pytest.raises(TypeError, match="Dish price must be float."):
-        Dish('pizza', '1111')
+        Dish("Presunto", "1")
 
-    with pytest.raises(ValueError, match="Dish price must be greater then zero."):
-        Dish('pizza', 0)
+    with pytest.raises(
+        ValueError, match="Dish price must be greater then zero."
+    ):
+        Dish("Risoto", 0.0)
 
-    Dish(dish1).add_ingredient_dependency(Ingredient('queijo mussarela'), 1)
-    Dish(dish1).add_ingredient_dependency(Ingredient('farinha'), 1)
-    assert dish1.recipe.get(Ingredient('queijo mussarela')) == 1
-    assert dish1.recipe.get(Ingredient('farinha')) == 1
+    dish.add_ingredient_dependency(Ingredient("creme de leite"), 1)
+    dish.add_ingredient_dependency(Ingredient("camarão"), 1)
+    assert dish.get_ingredients() == {
+        Ingredient("creme de leite"),
+        Ingredient("camarão"),
+    }
 
-    assert dish1.get_restrictions() == {
-        Restriction.LACTOSE, Restriction.GLUTEN, Restriction.ANIMAL_DERIVED
+    assert dish.get_restrictions() == {
+        Restriction.ANIMAL_DERIVED,
+        Restriction.ANIMAL_MEAT,
+        Restriction.SEAFOOD,
+        Restriction.LACTOSE,
     }
