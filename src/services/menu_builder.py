@@ -27,21 +27,31 @@ class MenuBuilder:
 
     # Req 4
     def get_main_menu(self, restriction=Restriction) -> List[Dict]:
-        main_menu = []
-        dishes = self.menu_data.dishes
-        
-        for dish in dishes:
-            if restriction is None or not dish.get_restrictions().intersection(restriction):
-                dict_menu = {
-                    "name": dish.name,
+        new_menu = []
+
+        for dish in self.menu_data.dishes:
+            if (
+                restriction is None
+                or restriction not in dish.get_restrictions()
+            ):
+                new_dict_dish = {
+                    "dish_name": dish.name,
+                    "ingredients": [
+                        ingredient for ingredient in dish.get_ingredients()
+                    ],
                     "price": dish.price,
-                    "ingredients": [ ingredient for ingredient in dish.get_ingredients() ],
-                    "price": dish.price,
-                    "restrictions": [ restriction for restriction in dish.get_restrictions() ]
+                    "restrictions": dish.get_restrictions(),
                 }
 
-                if restriction is not None:
-                    dict_menu["restrictions"] = list(dish.get_restrictions().intersection(restriction))
+                if all(
+                    self.inventory.inventory.get(ingredient)
+                    for ingredient in dish.get_ingredients()
+                ):
+                    new_menu.append(new_dict_dish)
 
-                main_menu.append(dict_menu)
-            return main_menu    
+        return new_menu
+
+
+""" all ->  returns True if all elements of the iterable are true
+https://docs.python.org/3/library/functions.html#all
+"""
