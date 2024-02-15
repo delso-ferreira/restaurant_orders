@@ -2,6 +2,7 @@ from typing import Dict, List
 
 from services.inventory_control import InventoryMapping
 from services.menu_data import MenuData
+from src.models.ingredient import Restriction
 
 DATA_PATH = "data/menu_base_data.csv"
 INVENTORY_PATH = "data/inventory_base_data.csv"
@@ -25,5 +26,5 @@ class MenuBuilder:
         self.inventory.consume_recipe(curr_dish.recipe)
 
     # Req 4
-    def get_main_menu(self, restriction=None) -> List[Dict]:
+    def get_main_menu(self, restriction=Restriction) -> List[Dict]:
         pass

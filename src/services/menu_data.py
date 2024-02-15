@@ -31,7 +31,7 @@ class MenuData:
                     ingredient = Ingredient(ingredient_name)
                     self.ingredients.add(ingredient)
 
-            dish.add_ingredient_dependency(ingredient, ingredient_amount)
+                dish.add_ingredient_dependency(ingredient, ingredient_amount)
 
 
 """ O que o next faz --> next(iterator, default)
