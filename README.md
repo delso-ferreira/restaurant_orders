@@ -1,13 +1,47 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# 🍝🦐 Chapa Quente 🍛🥘 Restaurant Orders
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+O restaurante Chapa Quente está em busca de uma ferramenta eficiente para a construção de seus cardápios. Esta ferramenta será crucial para considerar restrições alimentares e a disponibilidade de ingredientes em estoque, proporcionando uma gestão mais eficiente das receitas e do estoque do restaurante.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Objetivo do Projeto
+
+O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para o restaurante Chapa Quente. Você será responsável por:
+
+- Implementar testes para as classes já existentes.
+
+- Desenvolver uma nova classe para mapear os pratos e suas respectivas receitas (ingredientes e quantidades).
+
+- Criar uma classe para gerar os cardápios a serem exibidos para os clientes do restaurante.
+
+- Implementar uma classe para gerenciar o estoque dos ingredientes.
+
+## Funcionalidades
+
+### 1. Testes de Software
+
+- Desenvolver testes para garantir a robustez e a confiabilidade das classes existentes e das novas funcionalidades implementadas.
+
+### 2. Mapeamento de Pratos e Receitas
+
+- Implementar uma classe que mapeie os pratos do restaurante, suas receitas (ingredientes e quantidades) e possíveis restrições alimentares.
+
+### 3. Geração de Cardápios
+
+- Criar uma classe responsável por gerar os cardápios do restaurante, levando em consideração as receitas disponíveis, as restrições alimentares dos clientes e a disponibilidade de ingredientes em estoque.
+
+### 4. Gestão de Estoque
+
+- Desenvolver uma classe para gerenciar o estoque dos ingredientes do restaurante, atualizando-o conforme os cardápios são gerados e os pratos são preparados.
+
+## Princípios Orientadores
+
+- Construir um código limpo, com boa manutenção e legibilidade.
+
+- Praticar o conceito de Hashmaps através das estruturas de dados Dict e Set do Python.
+
+- Utilizar conhecimentos avançados de testes de software.
+
+- Aplicar os princípios de orientação a objetos para garantir um design eficiente e modular.
+
+---
+
+Esse é um projeto que simula melhorar significativamente a gestão de cardápios e estoque de restaurantes e demais estabelecimentos, proporcionando uma experiência ainda melhor para os clientes. 
