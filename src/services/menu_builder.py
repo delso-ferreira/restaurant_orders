@@ -52,6 +52,7 @@ class MenuBuilder:
         return new_menu
 
 
+
 """ all -->  returns True if all elements of the iterable are true
 https://docs.python.org/3/library/functions.html#all
 """
