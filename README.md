@@ -4,7 +4,7 @@ O restaurante Chapa Quente está em busca de uma ferramenta eficiente para a con
 
 ## Objetivo do Projeto
 
-O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para o restaurante Chapa Quente. Você será responsável por:
+O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para o restaurante Chapa Quente. Algumas das atividades exercidas nesse projeto foram:
 
 - Implementar testes para as classes já existentes.
 
