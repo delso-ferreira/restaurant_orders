@@ -1,10 +1,6 @@
-# 🍝🦐 Chapa Quente 🍛🥘 Restaurant Orders
-
-O restaurante Chapa Quente está em busca de uma ferramenta eficiente para a construção de seus cardápios. Esta ferramenta será crucial para considerar restrições alimentares e a disponibilidade de ingredientes em estoque, proporcionando uma gestão mais eficiente das receitas e do estoque do restaurante.
-
 ## Objetivo do Projeto
 
-O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para o restaurante Chapa Quente. Algumas das atividades exercidas nesse projeto foram:
+O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para um restaurante. Algumas das atividades exercidas nesse projeto foram:
 
 - Implementar testes para as classes já existentes.
 
