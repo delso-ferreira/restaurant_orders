@@ -1,5 +1,7 @@
 ## Objetivo do Projeto
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/delso-ferreira/restaurant_orders/blob/main/LICENSE)
+
 O objetivo deste projeto é finalizar a construção da ferramenta de construção de cardápios para um restaurante. Algumas das atividades exercidas nesse projeto foram:
 
 - Implementar testes para as classes já existentes.
